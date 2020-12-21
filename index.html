@@ -1,0 +1,102 @@
+<html> 
+<head>
+
+    <style>
+        
+        body{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #808080;
+        }
+        
+        .pass-image{
+            float: left;
+            margin: 40px;
+            width: 200px;
+            height: 200px;
+            //border: 5px;
+            //border-color: black;
+            border-style: solid;
+            
+            //unselectable
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+        
+        .full{
+            width: 100%;
+            height: 100%;
+        }
+        
+        .top_bar{
+            width: 100%;
+            height: 50px;
+            background-color: #404040;
+            font-size: 40px;
+        }
+        
+        .big-text{
+            margin: 0;
+            padding: 0;
+            height: 40px;
+            width: 500px;
+        }
+        .pass-image-odp{
+            font-size: 100px;
+            text-align: center;
+            padding: 100px;
+        }
+        
+    </style>
+    
+    <script>
+        var count=0;
+    
+        function pass_image_click(x){
+            sep='';
+            if(count!=0){
+                sep=":";
+            }
+            document.getElementById("pass-image-code").value+=sep+x;
+            document.getElementById("pass-image-image_"+x).innerHTML="";
+            count++;
+            if(count>=9){
+                odp='<div class="pass-image-odp">'+document.getElementById("pass-image-code").value+'<div>';
+                document.getElementById("pass-image-space").innerHTML=odp;
+            }
+        }
+        
+        function pass_image_generate(){
+            odp="";
+            for(var i=0;i<18;i++){
+                str='<div class="pass-image" id="pass-image-image_'+i+'" onclick="pass_image_click('+i+')"><img src="graphics/'+i+'.jpg" class="full"></div>';
+                odp+=str;
+            };
+            document.getElementById("pass-image-space").innerHTML=odp;
+        }
+    </script>
+
+
+</head>
+<body>
+
+    <div class="top_bar">
+        
+        <form>
+        CODE: <input thype="text" class="big-text" name="pass-image-code" id="pass-image-code" value="">
+        HASH:
+        ???
+        </form>
+        
+    </div>
+    
+    <div id="pass-image-space">lol</div>
+    
+    <script>
+        pass_image_generate();
+    </script>
+    
+</body>
+</html> 

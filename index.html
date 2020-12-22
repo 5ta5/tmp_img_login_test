@@ -44,9 +44,9 @@
             width: 500px;
         }
         .pass-image-odp{
-            font-size: 100px;
+            font-size: 60px;
             text-align: center;
-            padding: 100px;
+            padding: 50px;
         }
         
     </style>
@@ -63,7 +63,7 @@
             document.getElementById("pass-image-image_"+x).innerHTML="";
             count++;
             if(count>=9){
-                odp='<div class="pass-image-odp">'+document.getElementById("pass-image-code").value+'<div>';
+                odp='<div class="pass-image-odp">pass['+document.getElementById("pass-image-code").value+"]<br>timestamp["+Date.now()+']<div>';
                 document.getElementById("pass-image-space").innerHTML=odp;
             }
         }
